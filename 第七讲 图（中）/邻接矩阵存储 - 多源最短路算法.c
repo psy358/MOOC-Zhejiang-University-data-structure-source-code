@@ -1,24 +1,24 @@
-/* ÁÚ½Ó¾ØÕó´æ´¢ - ¶àÔ´×î¶ÌÂ·Ëã·¨ */
+/* é‚»æ¥çŸ©é˜µå­˜å‚¨ - å¤šæºæœ€çŸ­è·¯ç®—æ³• */
 
 bool Floyd( MGraph Graph, WeightType D[][MaxVertexNum], Vertex path[][MaxVertexNum] )
 {
     Vertex i, j, k;
 
-    /* ³õÊ¼»¯ */
+    /* åˆå§‹åŒ– */
     for ( i=0; i<Graph->Nv; i++ )
         for( j=0; j<Graph->Nv; j++ ) {
             D[i][j] = Graph->G[i][j];
             path[i][j] = -1;
         }
-
+//å¯¹è§’çº¿è¦åˆå§‹åŒ–ä¸º0 ä¹‹å‰åšé¢˜è¸©å¤§å‘
     for( k=0; k<Graph->Nv; k++ )
         for( i=0; i<Graph->Nv; i++ )
             for( j=0; j<Graph->Nv; j++ )
                 if( D[i][k] + D[k][j] < D[i][j] ) {
                     D[i][j] = D[i][k] + D[k][j];
-                    if ( i==j && D[i][j]<0 ) /* Èô·¢ÏÖ¸ºÖµÈ¦ */
-                        return false; /* ²»ÄÜÕıÈ·½â¾ö£¬·µ»Ø´íÎó±ê¼Ç */
+                    if ( i==j && D[i][j]<0 ) /* è‹¥å‘ç°è´Ÿå€¼åœˆ */
+                        return false; /* ä¸èƒ½æ­£ç¡®è§£å†³ï¼Œè¿”å›é”™è¯¯æ ‡è®° */
                     path[i][j] = k;
                 }
-    return true; /* Ëã·¨Ö´ĞĞÍê±Ï£¬·µ»ØÕıÈ·±ê¼Ç */
+    return true; /* ç®—æ³•æ‰§è¡Œå®Œæ¯•ï¼Œè¿”å›æ­£ç¡®æ ‡è®° */
 }
