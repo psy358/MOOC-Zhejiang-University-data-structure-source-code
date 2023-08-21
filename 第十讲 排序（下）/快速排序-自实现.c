@@ -1,4 +1,4 @@
-/* øÏÀŸ≈≈–Ú */
+/* Âø´ÈÄüÊéíÂ∫è */
 
 ElementType Median3( ElementType A[], int Left, int Right )
 { 
@@ -9,33 +9,33 @@ ElementType Median3( ElementType A[], int Left, int Right )
         Swap( &A[Left], &A[Right] );
     if ( A[Center] > A[Right] )
         Swap( &A[Center], &A[Right] );
-    /* ¥À ±A[Left] <= A[Center] <= A[Right] */
-    Swap( &A[Center], &A[Right-1] ); /* Ω´ª˘◊ºPivot≤ÿµΩ”“±ﬂ*/
-    /* ÷ª–Ë“™øº¬«A[Left+1] °≠ A[Right-2] */
-    return  A[Right-1];  /* ∑µªÿª˘◊ºPivot */
+    /* Ê≠§Êó∂A[Left] <= A[Center] <= A[Right] */
+    Swap( &A[Center], &A[Right-1] ); /* Â∞ÜÂü∫ÂáÜPivotËóèÂà∞Âè≥Ëæπ*/
+    /* Âè™ÈúÄË¶ÅËÄÉËôëA[Left+1] ‚Ä¶ A[Right-2] */
+    return  A[Right-1];  /* ËøîÂõûÂü∫ÂáÜPivot */
 }
 
 void Qsort( ElementType A[], int Left, int Right )
-{ /* ∫À–ƒµ›πÈ∫Ø ˝ */ 
+{ /* Ê†∏ÂøÉÈÄíÂΩíÂáΩÊï∞ */ 
      int Pivot, Cutoff, Low, High;
-      
-     if ( Cutoff <= Right-Left ) { /* »Áπ˚–Ú¡–‘™Àÿ≥‰∑÷∂‡£¨Ω¯»ÎøÏ≈≈ */
-          Pivot = Median3( A, Left, Right ); /* —°ª˘◊º */ 
+      Cutoff = ???????????????????????????????????????????????????????
+     if ( Cutoff <= Right-Left ) { /* Â¶ÇÊûúÂ∫èÂàóÂÖÉÁ¥†ÂÖÖÂàÜÂ§öÔºåËøõÂÖ•Âø´Êéí */
+          Pivot = Median3( A, Left, Right ); /* ÈÄâÂü∫ÂáÜ */ 
           Low = Left; High = Right-1;
-          while (1) { /*Ω´–Ú¡–÷–±»ª˘◊º–°µƒ“∆µΩª˘◊º◊Û±ﬂ£¨¥Ûµƒ“∆µΩ”“±ﬂ*/
+          while (1) { /*Â∞ÜÂ∫èÂàó‰∏≠ÊØîÂü∫ÂáÜÂ∞èÁöÑÁßªÂà∞Âü∫ÂáÜÂ∑¶ËæπÔºåÂ§ßÁöÑÁßªÂà∞Âè≥Ëæπ*/
                while ( A[++Low] < Pivot ) ;
                while ( A[--High] > Pivot ) ;
                if ( Low < High ) Swap( &A[Low], &A[High] );
                else break;
           }
-          Swap( &A[Low], &A[Right-1] );   /* Ω´ª˘◊ºªªµΩ’˝»∑µƒŒª÷√ */ 
-          Qsort( A, Left, Low-1 );    /* µ›πÈΩ‚æˆ◊Û±ﬂ */ 
-          Qsort( A, Low+1, Right );   /* µ›πÈΩ‚æˆ”“±ﬂ */  
+          Swap( &A[Low], &A[Right-1] );   /* Â∞ÜÂü∫ÂáÜÊç¢Âà∞Ê≠£Á°ÆÁöÑ‰ΩçÁΩÆ */ 
+          Qsort( A, Left, Low-1 );    /* ÈÄíÂΩíËß£ÂÜ≥Â∑¶Ëæπ */ 
+          Qsort( A, Low+1, Right );   /* ÈÄíÂΩíËß£ÂÜ≥Âè≥Ëæπ */  
      }
-     else InsertionSort( A+Left, Right-Left+1 ); /* ‘™ÀÿÃ´…Ÿ£¨”√ºÚµ•≈≈–Ú */ 
+     else InsertionSort( A+Left, Right-Left+1 ); /* ÂÖÉÁ¥†Â§™Â∞ëÔºåÁî®ÁÆÄÂçïÊéíÂ∫è */ 
 }
 
 void QuickSort( ElementType A[], int N )
-{ /* Õ≥“ªΩ”ø⁄ */
+{ /* Áªü‰∏ÄÊé•Âè£ */
      Qsort( A, 0, N-1 );
 }
